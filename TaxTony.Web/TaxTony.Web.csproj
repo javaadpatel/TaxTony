@@ -8,6 +8,8 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.4" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.8" />
   </ItemGroup>
 
@@ -17,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TaxTony.Core\TaxTony.Core.csproj" />
+    <ProjectReference Include="..\TaxTony.DataAccess\TaxTony.DataAccess.csproj" />
     <ProjectReference Include="..\TaxTony.Services\TaxTony.Services.csproj" />
   </ItemGroup>
 

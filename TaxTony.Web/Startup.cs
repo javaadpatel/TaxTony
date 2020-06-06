@@ -5,11 +5,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using TaxTony.Core.Contracts.Factories;
 using TaxTony.Core.Contracts.Services;
+using TaxTony.DataAccess.Contexts;
 using TaxTony.Services.Factories;
 using TaxTony.Services.Services;
 
@@ -27,6 +29,11 @@ namespace TaxTony.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //entity framework
+            services.AddDbContext<TaxTonyContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("TaxTonyContext"))
+            );
+
             //register services
             services.AddTransient<ITaxService, TaxService>();
             services.AddSingleton<ITaxStrategyFactory, TaxStrategyFactory>();
