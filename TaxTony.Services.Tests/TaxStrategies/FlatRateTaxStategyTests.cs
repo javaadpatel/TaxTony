@@ -1,8 +1,5 @@
 ﻿using FluentAssertions;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using TaxTony.Services.Services.TaxStrategies;
 
 namespace TaxTony.Services.Tests.TaxStrategies
