@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaxTony.Services.Tests", "T
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaxTony.DataAccess", "TaxTony.DataAccess\TaxTony.DataAccess.csproj", "{847D37C5-4E2E-42CD-B786-0D2875805CC9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaxTony.AutoMapper", "TaxTony.AutoMapper\TaxTony.AutoMapper.csproj", "{1999450F-9622-4E52-924C-D909AC54FCF9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{847D37C5-4E2E-42CD-B786-0D2875805CC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{847D37C5-4E2E-42CD-B786-0D2875805CC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{847D37C5-4E2E-42CD-B786-0D2875805CC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1999450F-9622-4E52-924C-D909AC54FCF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1999450F-9622-4E52-924C-D909AC54FCF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1999450F-9622-4E52-924C-D909AC54FCF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1999450F-9622-4E52-924C-D909AC54FCF9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +54,7 @@ Global
 		{7728B1DE-D581-4593-AF8B-19718F85566D} = {5F913F39-8976-42B5-ACC2-FA52B6F782DE}
 		{787F566A-F65C-4697-AB39-CA41CA793C91} = {1BDFFAD0-1CFC-4E29-BED1-AA0D44EA6858}
 		{847D37C5-4E2E-42CD-B786-0D2875805CC9} = {6C57B4A0-FF4D-4560-B75F-E347C87ED7C3}
+		{1999450F-9622-4E52-924C-D909AC54FCF9} = {5F913F39-8976-42B5-ACC2-FA52B6F782DE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4CBFE5E1-BF4B-4DD8-A479-9DAA2BE09013}
