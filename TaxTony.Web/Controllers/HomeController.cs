@@ -24,12 +24,14 @@ namespace TaxTony.Web.Controllers
 
         public IActionResult Index()
         {
-            var vm = new HomeViewModel();
-            vm.PostalCodes = PostalCodeConfig.PostalCodes.Select(p => new SelectListItem
+            var vm = new HomeViewModel
             {
-                Value = p.Code,
-                Text = p.Code
-            }).ToList();
+                PostalCodes = PostalCodeConfig.PostalCodes.Select(p => new SelectListItem
+                {
+                    Value = p.Code,
+                    Text = p.Code
+                }).ToList()
+            };
             return View(vm);
         }
 

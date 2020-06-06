@@ -1,8 +1,77 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model TaxTony.Web.ViewModels.HomeViewModel
+@{
+    ViewData["Title"] = "Tax Tony";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Let Tax Tony calculate your tax</h3>
+            </div>
+            <div class="card-body">
+                <div class="card-block">
+                    <div>
+                        <div class="row p-a-1">
+                            <div class="col-sm-12">
+                                <div class="form-group row">
+                                    @Html.LabelFor(model => model.AnnualSalary, htmlAttributes: new { @class = "control-label required col-md-4" })
+                                    <div class="col-md-8">
+                                        @Html.EditorFor(model => model.AnnualSalary,
+                                            new { htmlAttributes = new { @class = "form-control", @placeholder = "Annual Salary", @type = "text", @id = "annualSalaryInput" } })
+                                        @Html.ValidationMessageFor(model => model.AnnualSalary, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group row">
+                                    @Html.LabelFor(model => model.PostalCodes, htmlAttributes: new { @class = "control-label required col-md-4" })
+                                    <div class="col-md-8">
+                                        @Html.DropDownListFor(model => model.PostalCodes, Model.PostalCodes,
+                                            new { htmlAttributes = new { @class = "form-control" } })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <button id="calculateTaxBtn" class="btn btn-primary text-center">Calculate Tax</button>
+                            </div>
+
+                            <div class="col-sm-12" id="calculatedTaxDiv" hidden>
+                                <p>Your Tax: $<span id="calculatedTax"></span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
 </div>
+
+@section Scripts {
+    <script>
+        const annualSalaryCtrl = $("#annualSalaryInput");
+        const postalCodeCtrl = $("#postalCodeSelect");
+
+        $("#calculateTaxBtn").on("click", function (e) {
+            e.preventDefault();
+
+            const annualSalary = annualSalaryCtrl.val();
+            const postalCode = $("#PostalCodes :selected").val()
+
+            $.ajax({
+                url: "@Url.Action("CalculateTax", "Home")",
+                type: "GET",
+                data: {
+                    annualSalary: annualSalary,
+                    postalCode: postalCode
+                },
+                success: function (response) {
+                    console.log(response);
+                    $("#calculatedTax").text(response);
+                }
+            })
+            .always(function () {
+                $("#calculatedTaxDiv").removeAttr("hidden");
+            });
+        })
+    </script>
+}
