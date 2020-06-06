@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -32,6 +33,9 @@ namespace TaxTony.Web
                 {
                     var context = services.GetRequiredService<TaxTonyContext>();
                     context.Database.EnsureCreated();
+
+                    if (context.Database.GetPendingMigrations().Any())
+                        context.Database.Migrate();
                 }
                 catch (Exception ex)
                 {

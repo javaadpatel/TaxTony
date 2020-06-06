@@ -9,7 +9,6 @@ namespace TaxTony.DataAccess.Contexts
 
         public TaxTonyContext(DbContextOptions options): base(options){}
 
-
         public virtual DbSet<TaxCalculation> TaxCalculations { get; set; }
     }
 }
