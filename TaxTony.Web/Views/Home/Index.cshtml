@@ -3,7 +3,8 @@
     ViewData["Title"] = "Tax Tony";
 }
 
-<div class="text-center">
+<form id="taxForm">
+    <div class="text-center">
         <div class="card">
             <div class="card-header">
                 <h3 class="card-title">Let Tax Tony calculate your tax</h3>
@@ -16,9 +17,13 @@
                                 <div class="form-group row">
                                     @Html.LabelFor(model => model.AnnualSalary, htmlAttributes: new { @class = "control-label required col-md-4" })
                                     <div class="col-md-8">
-                                        @Html.EditorFor(model => model.AnnualSalary,
-                                            new { htmlAttributes = new { @class = "form-control", @placeholder = "Annual Salary", @type = "text", @id = "annualSalaryInput" } })
-                                        @Html.ValidationMessageFor(model => model.AnnualSalary, "", new { @class = "text-danger" })
+                                        <input 
+                                               id="annualSalaryInput"
+                                               data-parsley-required
+                                               data-parsley-type="number"
+                                               data-parsley-pattern="^\d+(\.\d{2})?$"
+                                               name="fname"
+                                               class="form-control" />
                                     </div>
                                 </div>
                             </div>
@@ -43,13 +48,31 @@
                 </div>
             </div>
         </div>
-    
-</div>
+
+    </div>
+</form>
 
 @section Scripts {
     <script>
         const annualSalaryCtrl = $("#annualSalaryInput");
         const postalCodeCtrl = $("#postalCodeSelect");
+
+        $(document).ready(function () {
+            $('#taxForm').parsley({
+                errorClass: 'is-invalid text-danger',
+                successClass: 'is-valid', // Comment this option if you don't want the field to become green when valid. Recommended in Google material design to prevent too many hints for user experience. Only report when a field is wrong.
+                errorsWrapper: '<span class="form-text text-danger"></span>',
+                errorTemplate: '<span></span>',
+            }).validate();
+        })
+
+        $('#annualSalaryInput').parsley()
+            .on('field:success', function () {
+                $("#calculateTaxBtn").prop('disabled', false);
+            })
+            .on('field:error', function () {
+                $("#calculateTaxBtn").prop('disabled', true);
+            });
 
         $("#calculateTaxBtn").on("click", function (e) {
             e.preventDefault();
@@ -67,6 +90,9 @@
                 success: function (response) {
                     console.log(response);
                     $("#calculatedTax").text(response);
+                },
+                error: function (response) {
+                    console.log(response);
                 }
             })
             .always(function () {
