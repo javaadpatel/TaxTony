@@ -9,9 +9,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using TaxTony.AutoMapper.Builders;
 using TaxTony.Core.Contracts.Factories;
+using TaxTony.Core.Contracts.Repositories;
 using TaxTony.Core.Contracts.Services;
 using TaxTony.DataAccess.Contexts;
+using TaxTony.DataAccess.Repositories;
 using TaxTony.Services.Factories;
 using TaxTony.Services.Services;
 
@@ -34,9 +37,16 @@ namespace TaxTony.Web
                 options.UseSqlServer(Configuration.GetConnectionString("TaxTonyContext"))
             );
 
+            //register automapper
+            services.AddSingleton(sp => MapperBuilder.Mapper);
+            services.AddSingleton(sp => MapperBuilder.ConfigurationProvider);
+
             //register services
             services.AddTransient<ITaxService, TaxService>();
             services.AddSingleton<ITaxStrategyFactory, TaxStrategyFactory>();
+
+            //register repositories
+            services.AddScoped<ITaxCalculationRepository, TaxCalculationRepository>();
 
             services
                 .AddControllersWithViews()

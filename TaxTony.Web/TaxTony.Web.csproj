@@ -22,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\TaxTony.AutoMapper\TaxTony.AutoMapper.csproj" />
     <ProjectReference Include="..\TaxTony.Core\TaxTony.Core.csproj" />
     <ProjectReference Include="..\TaxTony.DataAccess\TaxTony.DataAccess.csproj" />
     <ProjectReference Include="..\TaxTony.Services\TaxTony.Services.csproj" />

@@ -39,7 +39,12 @@ namespace TaxTony.Web.Controllers
         public async Task<JsonResult> CalculateTax(string annualSalary, string postalCode)
         {
             var postalCodeModel = PostalCodeConfig.PostalCodes.FirstOrDefault(p => p.Code == postalCode);
-            return Json(await _taxService.CalculateTax(decimal.Parse(annualSalary), postalCodeModel.TaxStrategy));
+            return Json(await _taxService.CalculateTaxAsync(
+                new Core.Models.TaxCalculation(
+                    decimal.Parse(annualSalary), 
+                    postalCodeModel.Code,
+                    postalCodeModel.TaxStrategy)
+            ));
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
