@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29920.165
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{5F913F39-8976-42B5-ACC2-FA52B6F782DE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAccess", "DataAccess", "{6C57B4A0-FF4D-4560-B75F-E347C87ED7C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaxTony.Core", "TaxTony.Core\TaxTony.Core.csproj", "{C0661572-8902-4EA7-966F-B96CBEDDA0C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaxTony.Services", "TaxTony.Services\TaxTony.Services.csproj", "{7728B1DE-D581-4593-AF8B-19718F85566D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{1BDFFAD0-1CFC-4E29-BED1-AA0D44EA6858}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaxTony.Services.Tests", "TaxTony.Services.Tests\TaxTony.Services.Tests.csproj", "{787F566A-F65C-4697-AB39-CA41CA793C91}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C0661572-8902-4EA7-966F-B96CBEDDA0C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0661572-8902-4EA7-966F-B96CBEDDA0C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0661572-8902-4EA7-966F-B96CBEDDA0C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0661572-8902-4EA7-966F-B96CBEDDA0C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7728B1DE-D581-4593-AF8B-19718F85566D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7728B1DE-D581-4593-AF8B-19718F85566D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7728B1DE-D581-4593-AF8B-19718F85566D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7728B1DE-D581-4593-AF8B-19718F85566D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{787F566A-F65C-4697-AB39-CA41CA793C91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{787F566A-F65C-4697-AB39-CA41CA793C91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{787F566A-F65C-4697-AB39-CA41CA793C91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{787F566A-F65C-4697-AB39-CA41CA793C91}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C0661572-8902-4EA7-966F-B96CBEDDA0C9} = {5F913F39-8976-42B5-ACC2-FA52B6F782DE}
+		{7728B1DE-D581-4593-AF8B-19718F85566D} = {5F913F39-8976-42B5-ACC2-FA52B6F782DE}
+		{787F566A-F65C-4697-AB39-CA41CA793C91} = {1BDFFAD0-1CFC-4E29-BED1-AA0D44EA6858}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4CBFE5E1-BF4B-4DD8-A479-9DAA2BE09013}
+	EndGlobalSection
+EndGlobal
